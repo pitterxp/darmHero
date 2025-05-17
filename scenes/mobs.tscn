@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn04bicaaeoct"]
+
+[ext_resource type="Script" uid="uid://dlp1x74hyqeul" path="res://scripts/mobs_default.gd" id="1_e14yx"]
+
+[node name="Mobs_Default" type="CharacterBody2D"]
+script = ExtResource("1_e14yx")

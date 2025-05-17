@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp7n2hvvf2sm8"]
+
+[ext_resource type="Texture2D" uid="uid://pgt8k6hwpvr6" path="res://assets/bgImages/sora-menu-bg4.jpg" id="1_2q6dc"]
+
+[node name="LevelBackground" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bgImage" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_2q6dc")
+
+[node name="playerSpawnMarker" type="Marker2D" parent="."]
+position = Vector2(632, 530)

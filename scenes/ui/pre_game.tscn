@@ -1,0 +1,127 @@
+[gd_scene load_steps=5 format=3 uid="uid://it3exoh70iws"]
+
+[ext_resource type="Script" uid="uid://cw2b40ttjf36a" path="res://scripts/pre_game.gd" id="1_fwt8j"]
+[ext_resource type="Texture2D" uid="uid://d0yo7fg2x8e16" path="res://assets/bgImages/sora-menu-bg2.png" id="2_rqpqi"]
+[ext_resource type="Theme" uid="uid://cqf0xqp63jr04" path="res://globals/uitheme.tres" id="3_ucl24"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_fwt8j"]
+
+[node name="PreGame" type="CanvasLayer"]
+script = ExtResource("1_fwt8j")
+
+[node name="content" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bgColour" type="ColorRect" parent="content"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="bgImage" type="TextureRect" parent="content"]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_rqpqi")
+
+[node name="Panel" type="Panel" parent="content"]
+layout_mode = 0
+offset_right = 1275.0
+offset_bottom = 724.0
+theme = ExtResource("3_ucl24")
+
+[node name="headline" type="Label" parent="content"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.5
+offset_right = 26.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 55
+text = "Spiel-Einstellungen"
+
+[node name="difficulty" type="VBoxContainer" parent="content"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -207.5
+offset_top = 150.0
+offset_right = 207.5
+offset_bottom = 234.0
+grow_horizontal = 2
+
+[node name="difficultyButtons" type="HBoxContainer" parent="content/difficulty"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="btnEasy" type="CheckButton" parent="content/difficulty/difficultyButtons" groups=["main_ui_button"]]
+layout_mode = 2
+focus_neighbor_right = NodePath("../btnMedium")
+button_pressed = true
+button_group = SubResource("ButtonGroup_fwt8j")
+text = "Einfach"
+
+[node name="btnMedium" type="CheckButton" parent="content/difficulty/difficultyButtons" groups=["main_ui_button"]]
+layout_mode = 2
+focus_neighbor_left = NodePath("../btnEasy")
+focus_neighbor_right = NodePath("../btnHard")
+button_group = SubResource("ButtonGroup_fwt8j")
+text = "Mittel"
+
+[node name="btnHard" type="CheckButton" parent="content/difficulty/difficultyButtons" groups=["main_ui_button"]]
+layout_mode = 2
+focus_neighbor_right = NodePath("../../../bottom/play")
+focus_neighbor_bottom = NodePath("../../../bottom/mainmenu")
+button_group = SubResource("ButtonGroup_fwt8j")
+text = "Schwer"
+
+[node name="difficultyInfo" type="Label" parent="content/difficulty"]
+layout_mode = 2
+text = "00 Runden
+00:00 Rundenzeit
+00 - 00 Gegner"
+horizontal_alignment = 1
+
+[node name="bottom" type="VBoxContainer" parent="content"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -31.0
+offset_right = 32.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="mainmenu" type="Button" parent="content/bottom" groups=["main_ui_button"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../difficulty/difficultyButtons/btnHard")
+focus_neighbor_bottom = NodePath("../play")
+text = "Hauptmenü"
+
+[node name="play" type="Button" parent="content/bottom" groups=["main_ui_button"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../mainmenu")
+focus_neighbor_bottom = NodePath("../../difficulty/difficultyButtons/btnEasy")
+text = "Spielen"
+
+[connection signal="pressed" from="content/bottom/mainmenu" to="." method="_on_mainmenu_pressed"]
+[connection signal="pressed" from="content/bottom/play" to="." method="_on_play_pressed"]

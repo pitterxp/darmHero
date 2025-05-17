@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://djq6rrum1larx"]
+
+[ext_resource type="Script" uid="uid://c1kwv21cj8pke" path="res://scripts/options_menu.gd" id="1_liyum"]
+[ext_resource type="Texture2D" uid="uid://d0yo7fg2x8e16" path="res://assets/bgImages/sora-menu-bg2.png" id="2_hm4m4"]
+[ext_resource type="PackedScene" uid="uid://dh513pjaulssn" path="res://scenes/ui_volume_slider.tscn" id="2_ijpji"]
+[ext_resource type="Theme" uid="uid://cqf0xqp63jr04" path="res://globals/uitheme.tres" id="3_lfjc7"]
+
+[node name="OptionsMenu" type="CanvasLayer"]
+script = ExtResource("1_liyum")
+
+[node name="content" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bgColour" type="ColorRect" parent="content"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="bgImage" type="TextureRect" parent="content"]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 853.0
+texture = ExtResource("2_hm4m4")
+
+[node name="Panel" type="Panel" parent="content"]
+layout_mode = 0
+offset_right = 1275.0
+offset_bottom = 724.0
+theme = ExtResource("3_lfjc7")
+
+[node name="headline" type="Label" parent="content"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.5
+offset_right = 26.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 55
+text = "Optionen"
+
+[node name="volumeSider" parent="content" instance=ExtResource("2_ijpji")]
+layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="content"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -31.0
+offset_right = 32.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="mainmenu" type="Button" parent="content/VBoxContainer" groups=["main_ui_button"]]
+layout_mode = 2
+text = "Hauptmenü"
+
+[node name="intro" type="Button" parent="content/VBoxContainer" groups=["main_ui_button"]]
+layout_mode = 2
+text = "Intro"
+
+[connection signal="pressed" from="content/VBoxContainer/mainmenu" to="." method="_on_mainmenu_pressed"]
+[connection signal="pressed" from="content/VBoxContainer/intro" to="." method="_on_intro_pressed"]

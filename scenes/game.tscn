@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1l2sjuymdnhs"]
+
+[ext_resource type="Script" uid="uid://cpveye17qiq12" path="res://scripts/round_manager.gd" id="1_lnu2h"]
+[ext_resource type="Script" uid="uid://4nrom2c0sq06" path="res://scripts/game.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://b6s8wf50k1s0o" path="res://scenes/hud.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://ben5nijp5ns6h" path="res://scripts/spawn_manager.gd" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://ch26xghawc103" path="res://scenes/levels/arena/arena_level_1.tscn" id="4_gee14"]
+[ext_resource type="PackedScene" uid="uid://cg821yyjqqg0x" path="res://scenes/player.tscn" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://lfxsufpaox6t" path="res://scenes/world.tscn" id="4_p57ef"]
+[ext_resource type="PackedScene" uid="uid://dh513pjaulssn" path="res://scenes/ui_volume_slider.tscn" id="7_u5sy4"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_o5qli")
+
+[node name="nodeRoundManager" type="Node" parent="."]
+script = ExtResource("1_lnu2h")
+
+[node name="nodeSpawnManager" type="Node" parent="."]
+script = ExtResource("3_p57ef")
+
+[node name="ArenaLevel1" parent="." instance=ExtResource("4_gee14")]
+
+[node name="Level" parent="." instance=ExtResource("4_p57ef")]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("4_iywne")]
+
+[node name="Hud" parent="." instance=ExtResource("2_yqjtg")]
+
+[node name="pauseMenu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="pauseMenu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bgColour" type="ColorRect" parent="pauseMenu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.490196)
+
+[node name="volumeSider" parent="pauseMenu/Control" instance=ExtResource("7_u5sy4")]
+layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pauseMenu/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.5
+offset_top = -170.0
+offset_right = 58.5
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="mainmenu" type="Button" parent="pauseMenu/Control/VBoxContainer" groups=["main_ui_button"]]
+layout_mode = 2
+text = "Spiel beenden"
+
+[node name="continue" type="Button" parent="pauseMenu/Control/VBoxContainer" groups=["main_ui_button"]]
+layout_mode = 2
+text = "Fortsetzen"
+
+[connection signal="pressed" from="pauseMenu/Control/VBoxContainer/mainmenu" to="." method="_on_mainmenu_pressed"]
+[connection signal="pressed" from="pauseMenu/Control/VBoxContainer/continue" to="." method="_on_continue_pressed"]

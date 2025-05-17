@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://7oh0qavtd8i"]
+
+[ext_resource type="Script" uid="uid://du4kkf7ukt23" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Theme" uid="uid://cqf0xqp63jr04" path="res://globals/uitheme.tres" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://d0yo7fg2x8e16" path="res://assets/bgImages/sora-menu-bg2.png" id="2_ekxnf"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_l6cm7")
+
+[node name="content" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="content"]
+layout_mode = 0
+offset_right = 1275.0
+offset_bottom = 724.0
+theme = ExtResource("2_bqqt6")
+
+[node name="bgColour" type="ColorRect" parent="content"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="bgImage" type="TextureRect" parent="content"]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ekxnf")
+
+[node name="headline" type="Label" parent="content"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.5
+offset_right = 46.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 55
+text = "Hauptmenü"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="content"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.5
+offset_top = -66.0
+offset_right = 40.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="options" type="Button" parent="content/VBoxContainer" groups=["main_ui_button"]]
+layout_mode = 2
+text = "Optionen"
+
+[node name="play" type="Button" parent="content/VBoxContainer" groups=["main_ui_button"]]
+layout_mode = 2
+text = "Spielen"
+
+[connection signal="pressed" from="content/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="content/VBoxContainer/play" to="." method="_on_play_pressed"]

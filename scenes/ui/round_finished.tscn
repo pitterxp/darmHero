@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://btej0oe7knh2f"]
+
+[ext_resource type="Script" uid="uid://bwy3ekwa7h566" path="res://scripts/round_finished.gd" id="1_cx1ni"]
+[ext_resource type="Texture2D" uid="uid://d0yo7fg2x8e16" path="res://assets/bgImages/sora-menu-bg2.png" id="2_3qe0m"]
+[ext_resource type="Theme" uid="uid://cqf0xqp63jr04" path="res://globals/uitheme.tres" id="3_3681d"]
+
+[node name="RoundFinished" type="CanvasLayer"]
+script = ExtResource("1_cx1ni")
+
+[node name="content" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bgColour" type="ColorRect" parent="content"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="bgImage" type="TextureRect" parent="content"]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_right = 1536.0
+offset_bottom = 1024.0
+texture = ExtResource("2_3qe0m")
+
+[node name="Panel" type="Panel" parent="content"]
+layout_mode = 0
+offset_right = 1275.0
+offset_bottom = 724.0
+theme = ExtResource("3_3681d")
+
+[node name="headline" type="Label" parent="content"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.5
+offset_right = 26.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 55
+text = "Optionen"
+
+[node name="roundResult" type="Label" parent="content"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.0
+offset_top = 125.0
+offset_right = 33.0
+offset_bottom = 148.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 65
+text = "WinLose"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="content"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.5
+offset_top = -59.0
+offset_right = 125.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="replay" type="Button" parent="content/VBoxContainer" groups=["main_ui_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Erneut spielen"
+
+[node name="new" type="Button" parent="content/VBoxContainer" groups=["main_ui_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Neues Spiel"
+
+[node name="mainmenu" type="Button" parent="content/VBoxContainer" groups=["main_ui_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Hauptmenü"
+
+[connection signal="pressed" from="content/VBoxContainer/replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="content/VBoxContainer/new" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="content/VBoxContainer/mainmenu" to="." method="_on_mainmenu_pressed"]

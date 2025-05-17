@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1urif2r1h7nq"]
+
+[ext_resource type="Texture2D" uid="uid://n5cy4ofld0dp" path="res://assets/sprites/weapons/sword1.png" id="1_iui4b"]
+
+[node name="Melee1" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iui4b")
+
+[node name="hitBox" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(38, -38, 35, -20, -7, 16, -3, 22, -5, 26, -8, 25, -12, 21, -23, 32, -22, 36, -24, 38, -27, 38, -38, 27, -38, 23, -37, 22, -34, 22, -32, 23, -21, 13, -26, 6, -24, 3, -21, 3, -17, 7, 21, -36)
+
+[node name="gripPoint" type="Marker2D" parent="."]
+position = Vector2(-23, 23)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

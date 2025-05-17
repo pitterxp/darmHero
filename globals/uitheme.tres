@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cqf0xqp63jr04"]
+
+[ext_resource type="Texture2D" uid="uid://c5f0ryknsupol" path="res://assets/bgImages/sora-menu-bg3.png" id="1_hq2ni"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hq2ni"]
+texture = ExtResource("1_hq2ni")
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_hq2ni")
