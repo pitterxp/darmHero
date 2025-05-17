@@ -1,8 +1,8 @@
-# Godot 4+ specific ignores
 .godot/
 /android/
-/ios/
-/web/
-/export_presets.cfg
-.import/
+*.uid
+*.import
+*.godot
 .editorconfig
+.gitattributes
+export_presets.cfg
