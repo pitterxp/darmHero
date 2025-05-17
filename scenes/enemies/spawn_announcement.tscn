@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0qdqiborsikt"]
 
 [ext_resource type="Texture2D" uid="uid://bbp6nx1p4yomn" path="res://assets/sprites/enemies/Gui_18.png" id="1_ibxqh"]
-[ext_resource type="Texture2D" uid="uid://h24jo2cd2gpj" path="res://openCP.png" id="2_pdpax"]
+[ext_resource type="Texture2D" uid="uid://h24jo2cd2gpj" path="res://assets/sprites/enemies/openCP.png" id="2_pdpax"]
 
 [node name="SpawnAnnouncement" type="Node2D"]
 
 [node name="spawnMarker1" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(0, 1)
 texture = ExtResource("1_ibxqh")
 
