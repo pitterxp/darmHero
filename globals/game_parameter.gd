@@ -1,8 +1,8 @@
 extends Node
 
 # Audio
-var bgmVolume: float = 0.3 # Default Lautstärke: Hintergrundmusik
-var sfxVolume: float = 0.7 # Default Lautstärke: Soundeffekte
+var bgmVolume: float = 0.0 # Default Lautstärke: Hintergrundmusik
+var sfxVolume: float = 0.2 # Default Lautstärke: Soundeffekte
 
 # Spiel
 var gameSettings = {

@@ -28,7 +28,6 @@ func _ready() -> void:
 
 # UI Szene wechseln
 func goto_ui_scene(scene_name:String) -> void:
-	print("change ui scene to: " + scene_name)
 	if ui_scenes.has(scene_name):
 		get_tree().change_scene_to_packed(ui_scenes[scene_name])
 	else:

@@ -1,10 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://ca0y0cqy5aet2"]
 
 [ext_resource type="Texture2D" uid="uid://bsguvh7bbpxne" path="res://assets/sprites/weapons/sword3.png" id="1_ggl1o"]
-[ext_resource type="Script" uid="uid://b6f1c3x18fbi2" path="res://scripts/weapons/sword_node.gd" id="1_mdf26"]
+[ext_resource type="Script" uid="uid://b6f1c3x18fbi2" path="res://scripts/weapons/sword.gd" id="1_mdf26"]
 
 [node name="Sword" type="Area2D"]
 scale = Vector2(0.4, 0.4)
+collision_layer = 8
+collision_mask = 4
 script = ExtResource("1_mdf26")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -14,3 +16,9 @@ texture = ExtResource("1_ggl1o")
 polygon = PackedVector2Array(187, -320, 182, -268, 40, -4, -10, 84, -72, 179, -15, 186, -40, 197, -95, 189, -170, 324, -195, 313, -113, 177, -145, 145, -152, 101, -116, 153, -6, -36, 145, -286)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

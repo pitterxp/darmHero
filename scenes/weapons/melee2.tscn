@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ddk36udyut3mw" path="res://assets/sprites/weapons/sword2.png" id="1_mmqc6"]
 
 [node name="Melee2" type="Area2D"]
+scale = Vector2(0.4, 0.4)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_mmqc6")

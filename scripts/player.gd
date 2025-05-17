@@ -65,16 +65,6 @@ func _on_death():
 	print("Player ist gestorben")
 
 func _physics_process(delta: float) -> void:
-	"""
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	"""
-	
 	# Spielpause berücksichtigen
 	if game_active:
 		# Get the input direction and handle the movement/deceleration.
@@ -86,16 +76,6 @@ func _physics_process(delta: float) -> void:
 		# Sprite Auswahl
 		_update_sprite_direction(h_direction, v_direction)		
 	move_and_slide()
-	
-	# Angreifen
-	_handle_attack_input()
-	
-func _handle_attack_input() -> void:
-	if Input.is_action_just_pressed("attack") && current_weapon != null:
-		current_weapon.attack(self, _get_closest_enemy())
-
-func _get_closest_enemy() -> Node:
-	return null
 	
 func _update_sprite_direction(h_dir: float, v_dir: float) -> void:
 	var angle = rad_to_deg(atan2(-v_dir, h_dir)) # Negatives Vorzeichen für v_dir

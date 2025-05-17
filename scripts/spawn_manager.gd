@@ -45,7 +45,7 @@ func _ready() -> void:
 func start_wave() -> void:
 	enemies_spawned = 0 # Zurücksetzen für jede neue Welle
 	var enemies_to_spawn = randi_range(spawn_parameter.min_enemies, spawn_parameter.max_enemies)
-	print("Starte Welle ", current_wave, " mit ", enemies_to_spawn, " Gegnern.")
+	#print("Starte Welle ", current_wave, " mit ", enemies_to_spawn, " Gegnern.")
 
 	for _i in range(enemies_to_spawn):
 		spawn_enemy()
@@ -77,7 +77,7 @@ func spawn_enemy() -> void:
 		arena_level.add_child(new_enemy_instance)
 		active_enemies.append(new_enemy_instance) # Gegner protokollieren
 		enemies_spawned += 1
-		print("Gegner gespawnt an:", spawn_position)
+		#print("Gegner gespawnt an:", spawn_position)
 		announcement.queue_free() # Entferne die Ankündigungsszene
 	else:
 		print("Keine gültige Spawn-Position gefunden.")
@@ -94,14 +94,14 @@ func show_spawn_announcement(position: Vector2) -> Node2D:
 
 func _game_activity_changed(new_value: bool) -> void:
 	game_active = new_value
-	print("Spawnmanager: game activity changed to: ", new_value)
+	#print("Spawnmanager: game activity changed to: ", new_value)
 	set_process(game_active) # Aktiviere/Deaktiviere _process
 	if game_active:
 		start_round() # Starte die erste Runde, wenn das Spiel aktiv wird
 
 func start_round() -> void:
 	current_wave = 1
-	print("Starte Runde ", current_wave)
+	#print("Starte Runde ", current_wave)
 	start_wave() # Starte die erste Welle der Runde
 
 func end_wave() -> void:

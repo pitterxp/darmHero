@@ -33,7 +33,7 @@ func start_timer() -> void:
 	add_child(timer)
 	timer.timeout.connect(end_round)	
 	timer.start()
-	print("Runde #" + str(round_number) + " gestartet. Rundenzeit: ", GameParameter.gameSettings[difficulty]["roundDuration"])
+	#print("Runde #" + str(round_number) + " gestartet. Rundenzeit: ", GameParameter.gameSettings[difficulty]["roundDuration"])
 
 func _process(delta):
 	if round_active:

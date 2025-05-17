@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://ce7vp06fgbonw"]
+
+[ext_resource type="Script" uid="uid://btylp06fvkct7" path="res://scenes/hitbox_test/hitbox_test.gd" id="1_7pq6y"]
+[ext_resource type="Script" uid="uid://dbvtbsyljsbns" path="res://scenes/hitbox_test/player.gd" id="2_b8f7h"]
+[ext_resource type="Texture2D" uid="uid://dy7m8kymhcw8f" path="res://assets/sprites/player/hero.png" id="3_7savw"]
+[ext_resource type="Texture2D" uid="uid://6ubm6kujt4jd" path="res://assets/sprites/enemies/mob-1.png" id="4_76b77"]
+[ext_resource type="Texture2D" uid="uid://ddk36udyut3mw" path="res://assets/sprites/weapons/sword2.png" id="4_vgo6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7savw"]
+size = Vector2(103, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76b77"]
+size = Vector2(45, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgo6v"]
+size = Vector2(45, 43)
+
+[node name="HitboxTest" type="Node2D"]
+script = ExtResource("1_7pq6y")
+
+[node name="level" type="Node2D" parent="."]
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(319, 395)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_b8f7h")
+
+[node name="playerSprite" type="Sprite2D" parent="player"]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_7savw")
+
+[node name="movementCollision" type="CollisionShape2D" parent="player"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_7savw")
+
+[node name="playerHitbox" type="Area2D" parent="player"]
+collision_mask = 2
+
+[node name="hitbox_shape" type="CollisionShape2D" parent="player/playerHitbox"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_7savw")
+
+[node name="weapon" type="Node2D" parent="player"]
+position = Vector2(69, -8)
+scale = Vector2(0.6, 0.6)
+
+[node name="weaponSprite" type="Sprite2D" parent="player/weapon"]
+texture = ExtResource("4_vgo6v")
+
+[node name="weaponHitbox" type="Area2D" parent="player/weapon"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="hitbox_shape" type="CollisionPolygon2D" parent="player/weapon/weaponHitbox"]
+polygon = PackedVector2Array(48, -48, 39, -33, -17, 30, -4, 31, -7, 36, -29, 33, -47, 51, -51, 47, -33, 30, -41, 24, -46, 17, -43, 12, -40, 12, -32, 22, -28, 17, 32, -39)
+
+[node name="mob" type="CharacterBody2D" parent="." groups=["enemies"]]
+position = Vector2(876, 309)
+collision_layer = 0
+collision_mask = 0
+
+[node name="mobSprite" type="Sprite2D" parent="mob"]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_76b77")
+
+[node name="movementCollision" type="CollisionShape2D" parent="mob"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_76b77")
+
+[node name="mobHitbox" type="Area2D" parent="mob"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="hitbox_shape" type="CollisionShape2D" parent="mob/mobHitbox"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_vgo6v")
