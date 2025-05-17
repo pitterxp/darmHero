@@ -9,6 +9,7 @@ var game_active: bool = false
 var enemies_spawned: int = 0
 var current_wave: int = 0 
 var enemy_scenes = [preload("res://scenes/enemies/mob.tscn"), preload("res://scenes/enemies/noro.tscn")]
+var active_enemies = []
 var safe_radius: float = GameParameter.safeZoneSettings.radius
 var spawn_radius: float = GameParameter.enemySpawnZoneSettings.radius
 
@@ -74,6 +75,7 @@ func spawn_enemy() -> void:
 		var new_enemy_instance = random_enemy_scene.instantiate()
 		new_enemy_instance.global_position = spawn_position
 		arena_level.add_child(new_enemy_instance)
+		active_enemies.append(new_enemy_instance) # Gegner protokollieren
 		enemies_spawned += 1
 		print("Gegner gespawnt an:", spawn_position)
 		announcement.queue_free() # Entferne die Ankündigungsszene

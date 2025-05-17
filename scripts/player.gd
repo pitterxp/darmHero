@@ -4,6 +4,9 @@ class_name Player
 var speed:float = 300.0
 #const JUMP_VELOCITY = -400.0
 
+# Waffe holen
+@onready var current_weapon: WeaponBase = $Sword # Gehe davon aus, dass das Schwert ein Child mit dem Namen "Sword" ist
+
 var game_active:bool
 
 # Get more player Sprites
@@ -46,8 +49,8 @@ func _ready() -> void:
 	#Signale
 	# Player "hört" zu, ob sein todesfall eintritt. "o7 in den chat für Player"
 	connect("entity_dies", Callable(self, "_on_death"))
+	
 	# Spiel pausiert?
-	#var root = get_node("/root")
 	get_node("/root/Game").connect("gameActive", _game_activitiy_changed)
 	spawn()
 
@@ -77,16 +80,22 @@ func _physics_process(delta: float) -> void:
 		# Get the input direction and handle the movement/deceleration.
 		var h_direction := Input.get_axis("move_left", "move_right")
 		var v_direction := Input.get_axis("move_up", "move_down")
-		
 		velocity.x = h_direction * speed
 		velocity.y = v_direction * speed
-		
 		position += velocity * delta
-		
 		# Sprite Auswahl
-		_update_sprite_direction(h_direction, v_direction)
-		
+		_update_sprite_direction(h_direction, v_direction)		
 	move_and_slide()
+	
+	# Angreifen
+	_handle_attack_input()
+	
+func _handle_attack_input() -> void:
+	if Input.is_action_just_pressed("attack") && current_weapon != null:
+		current_weapon.attack(self, _get_closest_enemy())
+
+func _get_closest_enemy() -> Node:
+	return null
 	
 func _update_sprite_direction(h_dir: float, v_dir: float) -> void:
 	var angle = rad_to_deg(atan2(-v_dir, h_dir)) # Negatives Vorzeichen für v_dir

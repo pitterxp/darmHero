@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg821yyjqqg0x"]
+[gd_scene load_steps=8 format=3 uid="uid://cg821yyjqqg0x"]
 
 [ext_resource type="Script" uid="uid://d0hspiv4pn7vo" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://dy7m8kymhcw8f" path="res://assets/sprites/player/hero.png" id="2_g2els"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1urif2r1h7nq" path="res://scenes/weapons/melee1.tscn" id="4_dqkch"]
 [ext_resource type="PackedScene" uid="uid://chy1sndpn40q3" path="res://scenes/weapons/melee2.tscn" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://i27qjtpoi6r8" path="res://scenes/weapons/melee3.tscn" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://ca0y0cqy5aet2" path="res://scenes/weapons/sword_node.tscn" id="7_fjrip"]
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.38, 0.38)
@@ -42,4 +43,8 @@ visible = false
 position = Vector2(150, 2.63158)
 
 [node name="Melee3" parent="." instance=ExtResource("6_tuyoq")]
+visible = false
 position = Vector2(152.632, -34.2105)
+
+[node name="Sword" parent="." instance=ExtResource("7_fjrip")]
+position = Vector2(165.789, -60.5263)
