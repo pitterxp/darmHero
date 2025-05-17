@@ -1,3 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+/ios/
+/web/
+/export_presets.cfg
+.import/
+.editorconfig
