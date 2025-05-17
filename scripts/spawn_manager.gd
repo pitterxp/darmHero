@@ -13,7 +13,7 @@ var active_enemies = []
 var safe_radius: float = GameParameter.safeZoneSettings.radius
 var spawn_radius: float = GameParameter.enemySpawnZoneSettings.radius
 
-var spawn_delay: float = 0.1 # Verzögerung zwischen Ankündigung und Spawn
+var spawn_delay: float = 0.0 # Verzögerung zwischen Ankündigung und Spawn
 var announcement_duration: float = 1 # Dauer der Ankündigungsvisualisierung
 var announcement_scene: PackedScene = preload("res://scenes/enemies/spawn_announcement.tscn") # Pfad zur Ankündigungs-Szene
 

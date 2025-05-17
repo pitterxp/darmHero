@@ -2,6 +2,8 @@ extends Node
 
 @onready var round_manager = get_node("/root/Game/nodeRoundManager")
 var game_active:bool = true
+var total_spawned_enemies: int = 0
+var killed_enemies_count: int = 0
 
 signal gameActive(status)
 
@@ -26,11 +28,7 @@ func start_game() -> void:
 	spawn_player()
 	pass
 
-func spawn_player() -> void:
-	
-	# Test: Größe der Spielfigur skalieren
-	$Player.scale = Vector2(0.45, 0.45)
-	
+func spawn_player() -> void:		
 	# Spawn Position ermitteln QUICK AND DIRTY
 	var spawn_position = $ArenaLevel1/playerSpawnPosition.position	
 	$Player.position = spawn_position

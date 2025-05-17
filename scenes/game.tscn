@@ -70,3 +70,6 @@ text = "Fortsetzen"
 
 [connection signal="pressed" from="pauseMenu/Control/VBoxContainer/mainmenu" to="." method="_on_mainmenu_pressed"]
 [connection signal="pressed" from="pauseMenu/Control/VBoxContainer/continue" to="." method="_on_continue_pressed"]
+
+[editable path="Player"]
+[editable path="Player/Sword"]

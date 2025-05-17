@@ -73,7 +73,6 @@ alignment = 1
 [node name="btnEasy" type="CheckButton" parent="content/difficulty/difficultyButtons" groups=["main_ui_button"]]
 layout_mode = 2
 focus_neighbor_right = NodePath("../btnMedium")
-button_pressed = true
 button_group = SubResource("ButtonGroup_fwt8j")
 text = "Einfach"
 
@@ -88,6 +87,7 @@ text = "Mittel"
 layout_mode = 2
 focus_neighbor_right = NodePath("../../../bottom/play")
 focus_neighbor_bottom = NodePath("../../../bottom/mainmenu")
+button_pressed = true
 button_group = SubResource("ButtonGroup_fwt8j")
 text = "Schwer"
 

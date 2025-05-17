@@ -7,7 +7,8 @@
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.38, 0.38)
-collision_layer = 2
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_3vyb7")
 metadata/_edit_horizontal_guides_ = [-132.0, 133.0]
 metadata/_edit_vertical_guides_ = [128.0, -128.0]
@@ -15,7 +16,7 @@ metadata/_edit_vertical_guides_ = [128.0, -128.0]
 [node name="hero" type="Sprite2D" parent="."]
 texture = ExtResource("2_g2els")
 
-[node name="physHitbox" type="CollisionPolygon2D" parent="."]
+[node name="movementHitbox" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-35, -133, -10, -130, 2, -121, 27, -129, 53, -124, 70, -112, 78, -95, 80, -79, 73, -64, 75, -49, 74, -40, 84, -30, 88, -14, 85, 1, 117, 24, 126, 40, 128, 50, 126, 55, 119, 60, 110, 61, 99, 55, 90, 38, 83, 45, 81, 62, 71, 75, 62, 80, 64, 109, 70, 117, 69, 124, 62, 128, 54, 130, 40, 128, 33, 120, 31, 101, 15, 102, 8, 90, 6, 80, -6, 86, -21, 85, -27, 127, -39, 133, -52, 131, -60, 120, -55, 78, -75, 60, -82, 31, -86, 32, -91, 43, -88, 55, -98, 68, -113, 71, -128, 60, -127, 34, -110, 14, -88, -4, -84, -18, -92, -38, -89, -59, -93, -81, -88, -99, -77, -116, -61, -127, -48, -131)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -28,6 +29,12 @@ modulate = Color(0, 0, 0, 0.686275)
 position = Vector2(0, 150)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_qhqgy")
+
+[node name="playerHitbox" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="hitboxshape" type="CollisionPolygon2D" parent="playerHitbox"]
+polygon = PackedVector2Array(-35, -133, -10, -130, 2, -121, 27, -129, 53, -124, 70, -112, 78, -95, 80, -79, 73, -64, 75, -49, 74, -40, 84, -30, 88, -14, 85, 1, 117, 24, 126, 40, 128, 50, 126, 55, 119, 60, 110, 61, 99, 55, 90, 38, 83, 45, 81, 62, 71, 75, 62, 80, 64, 109, 70, 117, 69, 124, 62, 128, 54, 130, 40, 128, 33, 120, 31, 101, 15, 102, 8, 90, 6, 80, -6, 86, -21, 85, -27, 127, -39, 133, -52, 131, -60, 120, -55, 78, -75, 60, -82, 31, -86, 32, -91, 43, -88, 55, -98, 68, -113, 71, -128, 60, -127, 34, -110, 14, -88, -4, -84, -18, -92, -38, -89, -59, -93, -81, -88, -99, -77, -116, -61, -127, -48, -131)
 
 [node name="Sword" parent="." instance=ExtResource("7_fjrip")]
 position = Vector2(165.789, -60.5263)

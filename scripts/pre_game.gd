@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var button_group = $content/difficulty/difficultyButtons/btnEasy.button_group
-var difficulty_preset: String = "easy" # Default Schwierigkeitsgradauswahl
+var difficulty_preset: String = "hard" # Default Schwierigkeitsgradauswahl
 
 func _ready() -> void:
 	# Signal für Schwierigkeitsgradwahl

@@ -9,46 +9,49 @@ var current_target: Node = null
 
 func _ready():
 	damage = 15 # Setze den spezifischen Schaden für das Schwert
-	attack_speed = 0.8
+	attack_speed = 2
 	
 	# Timer initialisieren
 	attack_timer.wait_time = 1.0 / attack_speed
 	attack_timer.one_shot = false
-	attack_timer.stop()	
-
+	attack_timer.stop()
+	
+	# Dann versuche die Verbindungen herzustellen
+	$".".area_entered.connect(_on_weapon_area_entered)
+	$".".area_exited.connect(_on_weapon_area_exited)
 
 func attack(attacker, target):
-	# Nicht Player angreifen!
-	#if !target.name == "Player":
-	#	print("Sword can attack! " + attacker.name + " vs. " + target.name)
-	
-	if target.has_method("take_damage"):
+	print("DMG CALC: Attacking: >" + attacker.name + "< vs " + target.name)
+	if target != null and target.has_method("take_damage"):
 		target.take_damage(damage)
+	pass
 
-func _start_attack(target) -> void:
+func _process_attack(attacker, target) -> void:
+	print("Proc. ATK: >" + attacker.name + "< vs " + target.name)
+	print("current target: >> " + current_target.name)
 	if target.has_method("take_damage"):
-		current_target = target
-		print("Sword stops attacking " + target.name)
 		attack_timer.start()
-		_process_attack() # Sofortiger erster Angriff  "QUICK AND DIRTY"
-
+		print("Starte Attack-Timer NOW")
+		attack(attacker, current_target) # Sofortiger erster Angriff  "QUICK AND DIRTY"
+	else:
+		print("target hat keine take_damage methode! => " + target.name)
+		
 func _stop_attack(target) -> void:
-	if target == current_target:
 		print("Sword stops attacking " + target.name)
 		attack_timer.stop()
 		current_target = null
 	
-func _process_attack() -> void:
-	if current_target != null:
-		attack(get_parent(), current_target)
-
-func _on_body_entered(body: Node2D) -> void:
-	# Player kann ab jetzt angreifen
-	_start_attack(body)
-
-func _on_body_exited(body: Node2D) -> void:
-	# Player kann ab jetzt nicht mehr angreifen
-	_stop_attack(body)
-
 func _on_attack_timer_timeout() -> void:
-	_process_attack()
+	print("Timeout-Signal empfangen!")
+	_process_attack(self, current_target)
+
+func _on_weapon_area_entered(area):
+	print("Waffe kollidiert mit: ", area.get_parent().name)
+	current_target = area.get_parent()
+	print("Current Target gesetzt auf:", current_target.name)
+	if area.get_parent().is_in_group("enemies"):		
+		_process_attack(self, area.get_parent())
+		
+func _on_weapon_area_exited(area):
+	print("Waffe kollidiert NICHT MEHR mit: ", area.get_parent().name)
+	_stop_attack(area.get_parent())

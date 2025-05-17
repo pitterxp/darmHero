@@ -27,7 +27,7 @@ func die():
 	queue_free()
 
 func take_damage(amount: int):
-	print("LivingEntity taking damage: ", amount)
+	print("LivingEntity taking damage. Current HP: ", health, ", Max HP: ", max_health, ", DMG: ", amount)
 	if can_take_damage:
 		health -= amount
 		

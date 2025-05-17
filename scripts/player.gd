@@ -50,9 +50,23 @@ func _ready() -> void:
 	# Player "hört" zu, ob sein todesfall eintritt. "o7 in den chat für Player"
 	connect("entity_dies", Callable(self, "_on_death"))
 	
+	$playerHitbox.area_entered.connect(_on_hitbox_area_entered)
+	$playerHitbox.area_exited.connect(_on_hitbox_area_exited)
+	
 	# Spiel pausiert?
 	get_node("/root/Game").connect("gameActive", _game_activitiy_changed)
 	spawn()
+	
+func _on_hitbox_area_entered(area):
+	print("Spieler kollidiert mit: ", area.get_parent().name)
+	if area.get_parent().is_in_group("enemies"):
+		print("Spieler wurde von Gegner getroffen!")
+		# Hier deine Logik für Schaden, etc.
+
+func _on_hitbox_area_exited(area):
+	print("Kollision mit Spieler beendet: ", area.get_parent().name)
+	if area.get_parent().is_in_group("enemies"):
+		print("Gegner hat Spieler verlassen")
 
 func spawn():
 	#print("Player wurde 'geboren'")
