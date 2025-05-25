@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5cl0rd73y3j6"]
+
+[ext_resource type="Texture2D" uid="uid://dv5tju0vov2re" path="res://scenes/entities/enemies/clostri/clostridium-64.png" id="1_47wvh"]
+
+[node name="Clostri" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_47wvh")

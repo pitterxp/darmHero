@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b21iajuc0ulkp"]
+
+[ext_resource type="Texture2D" uid="uid://d0gtn7nfba104" path="res://scenes/entities/enemies/campy/campy-64.png" id="1_nhv7a"]
+
+[node name="Campy" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nhv7a")

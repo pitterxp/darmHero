@@ -11,16 +11,16 @@ const GAME = "game"
 
 # Pfade definieren und vorladen
 var ui_scenes = {
-	INTRO: preload("res://scenes/ui/intro.tscn"),
-	MAIN_MENU: preload("res://scenes/ui/main_menu.tscn"),
-	OPTIONS_MENU: preload("res://scenes/ui/options_menu.tscn"),
-	PRE_GAME: preload("res://scenes/ui/pre_game.tscn"),
-	ROUND_FINISHED: preload("res://scenes/ui/round_finished.tscn"),
+	INTRO: preload("res://scenes/ui/intro/intro.tscn"),
+	MAIN_MENU: preload("res://scenes/ui/main_menu/main_menu.tscn"),
+	OPTIONS_MENU: preload("res://scenes/ui/options_menu/options_menu.tscn"),
+	PRE_GAME: preload("res://scenes/ui/pre_game/pre_game.tscn"),
+	ROUND_FINISHED: preload("res://scenes/ui/round_finished/round_finished.tscn"),
 }
 
 # Pfade definieren ohne vorzuladen
 var game_scenes = {
-	GAME: "res://scenes/game.tscn"
+	GAME: "res://scenes/game/game.tscn"
 }
 
 func _ready() -> void:
