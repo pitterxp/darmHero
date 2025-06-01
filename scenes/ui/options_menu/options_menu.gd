@@ -10,3 +10,7 @@ func _on_mainmenu_pressed() -> void:
 func _on_intro_pressed() -> void:
 	# Intro erneut abspielen
 	UIHelper.goto_ui_scene("intro")
+
+
+func _on_credits_pressed() -> void:
+	UIHelper.goto_ui_scene("credits")

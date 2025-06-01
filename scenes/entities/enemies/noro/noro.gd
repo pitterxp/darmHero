@@ -8,8 +8,9 @@ func _init() -> void:
 	
 func _ready() -> void:
 	super._ready()
-	health = 10
-	max_health = 10
+	health = 100
+	max_health = 100
+	damage = 30
 
 func die():
 	#print(self , "Noro -> send signal: 'entity_dies'")

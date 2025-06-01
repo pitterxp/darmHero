@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf8mw8ucswg5u"]
+
+[ext_resource type="Script" uid="uid://cmafutuinbhgv" path="res://scenes/ui/intro/SlideBase.gd" id="1_yk614"]
+[ext_resource type="Texture2D" uid="uid://banwbpvmm3wpp" path="res://scenes/ui/intro/slide3/slide_3.png" id="2_ef31n"]
+[ext_resource type="FontFile" uid="uid://dw4sryh8663s2" path="res://fonts/GloriaHallelujah/GloriaHallelujah.ttf" id="3_5ocyo"]
+[ext_resource type="Texture2D" uid="uid://ci5gx1j4d77y0" path="res://scenes/ui/intro/slide3/slide_3-lacto-panisch.png" id="3_sxqex"]
+[ext_resource type="StyleBox" uid="uid://cg7r1yqipslgh" path="res://scenes/ui/intro/slide_dialog_label.tres" id="4_yk614"]
+
+[node name="Slide3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yk614")
+
+[node name="VisualLayer" type="CanvasGroup" parent="."]
+
+[node name="picture" type="TextureRect" parent="VisualLayer"]
+offset_right = 1536.0
+offset_bottom = 856.0
+texture = ExtResource("2_ef31n")
+
+[node name="dialogText" type="Label" parent="VisualLayer"]
+offset_left = 131.0
+offset_top = 207.0
+offset_right = 591.0
+offset_bottom = 476.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5ocyo")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("4_yk614")
+text = "😱„Darmi! Hilfe! 😱
+😨Campy greift alles an! Die Schleimwände brechen zusammen!😨
+🚨Clostri hat schon wieder seine Sporen überall verteilt!!111“🚨🆘"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VisualLayer"]
+position = Vector2(914, 483)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("3_sxqex")

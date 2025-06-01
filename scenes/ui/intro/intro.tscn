@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://djrbfe8t3cu3u"]
+[gd_scene load_steps=2 format=3 uid="uid://djrbfe8t3cu3u"]
 
 [ext_resource type="Script" uid="uid://cdv53vuebdktq" path="res://scenes/ui/intro/intro.gd" id="1_ioskq"]
-[ext_resource type="Theme" uid="uid://cqf0xqp63jr04" path="res://globals/uitheme.tres" id="3_4bx60"]
 
-[node name="IntroSzene" type="CanvasLayer"]
-
-[node name="Control" type="Control" parent="."]
+[node name="IntroSzene" type="Control"]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlideContainer" type="Control" parent="."]
+z_index = 1
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,15 +20,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ioskq")
 
-[node name="Panel" type="Panel" parent="Control"]
-z_index = -2
-layout_mode = 0
-offset_right = 1275.0
-offset_bottom = 724.0
-theme = ExtResource("3_4bx60")
+[node name="sliderContent" type="Control" parent="SlideContainer"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="bgColour" type="ColorRect" parent="Control"]
+[node name="bgColour" type="ColorRect" parent="SlideContainer"]
 z_index = -1
+y_sort_enabled = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,122 +40,27 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.976471)
 
-[node name="gameTitle" type="Label" parent="Control"]
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+z_index = 5
+y_sort_enabled = true
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-offset_left = -132.5
-offset_right = 132.5
-offset_bottom = 49.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -28.0
+offset_right = 36.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.823529, 0.168627, 0.168627, 1)
-theme_override_font_sizes/font_size = 30
-text = "darmHero
-ein 2D Top Down Action-Roguelike"
-horizontal_alignment = 1
+grow_vertical = 0
+alignment = 1
 
-[node name="text1" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -191.5
-offset_top = -66.0
-offset_right = 191.5
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Entwickelt von
+[node name="skip" type="Button" parent="VBoxContainer"]
+z_index = 5
+z_as_relative = false
+y_sort_enabled = true
+layout_mode = 2
+text = "❌"
 
-pitterxp"
-horizontal_alignment = 1
-
-[node name="text2" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -191.5
-offset_top = -66.0
-offset_right = 191.5
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Powered by
-
-Godot Engine"
-horizontal_alignment = 1
-
-[node name="text3" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -283.5
-offset_top = -111.0
-offset_right = 283.5
-offset_bottom = 111.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Ohne Euch gäbe es dieses Projekt nicht
-
-
-ChatGPT → creative-coding-CoPilot
-Gemini → intial coding-CoPilot
-Claude →intial lektorat-CoPilot"
-horizontal_alignment = 1
-
-[node name="text4" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -191.5
-offset_top = -66.0
-offset_right = 191.5
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Visual elements by
-
-pitterxp
-Stable Diffusion
-Sora"
-horizontal_alignment = 1
-
-[node name="text5" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -191.5
-offset_top = -66.0
-offset_right = 191.5
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Dieses Projekt ist weder offiziell abgesegnet, noch hat es Anspruch auf Seriosität.
-
-Have fun <3"
-horizontal_alignment = 1
+[connection signal="pressed" from="VBoxContainer/skip" to="SlideContainer" method="_on_skip_pressed"]

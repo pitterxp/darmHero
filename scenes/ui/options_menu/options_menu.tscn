@@ -69,13 +69,18 @@ offset_right = 32.5
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="mainmenu" type="Button" parent="content/VBoxContainer" groups=["main_ui_button"]]
-layout_mode = 2
-text = "Hauptmenü"
-
 [node name="intro" type="Button" parent="content/VBoxContainer" groups=["main_ui_button"]]
 layout_mode = 2
 text = "Intro"
 
-[connection signal="pressed" from="content/VBoxContainer/mainmenu" to="." method="_on_mainmenu_pressed"]
+[node name="credits" type="Button" parent="content/VBoxContainer" groups=["main_ui_button"]]
+layout_mode = 2
+text = "Credits"
+
+[node name="mainmenu" type="Button" parent="content/VBoxContainer" groups=["main_ui_button"]]
+layout_mode = 2
+text = "Hauptmenü"
+
 [connection signal="pressed" from="content/VBoxContainer/intro" to="." method="_on_intro_pressed"]
+[connection signal="pressed" from="content/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="content/VBoxContainer/mainmenu" to="." method="_on_mainmenu_pressed"]

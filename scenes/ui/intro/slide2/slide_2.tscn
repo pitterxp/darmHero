@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckbd2db8pri7i"]
+
+[ext_resource type="Script" uid="uid://cmafutuinbhgv" path="res://scenes/ui/intro/SlideBase.gd" id="1_riiqp"]
+[ext_resource type="Texture2D" uid="uid://bk7r1yih8241h" path="res://scenes/ui/intro/slide2/slide_2.png" id="2_akxvs"]
+[ext_resource type="StyleBox" uid="uid://cg7r1yqipslgh" path="res://scenes/ui/intro/slide_dialog_label.tres" id="3_an3i1"]
+[ext_resource type="Texture2D" uid="uid://dshhe73q7oocl" path="res://scenes/ui/intro/slide2/slide_2-darmpad.png" id="3_h63ng"]
+[ext_resource type="FontFile" uid="uid://dw4sryh8663s2" path="res://fonts/GloriaHallelujah/GloriaHallelujah.ttf" id="3_kbuhw"]
+[ext_resource type="Texture2D" uid="uid://bvn1tx5ygfn4y" path="res://scenes/ui/intro/slide2/lacto-friendly-64.png" id="4_riiqp"]
+
+[node name="Slide2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_riiqp")
+
+[node name="VisualLayer" type="CanvasGroup" parent="."]
+
+[node name="picture" type="TextureRect" parent="VisualLayer"]
+offset_right = 1536.0
+offset_bottom = 864.0
+texture = ExtResource("2_akxvs")
+
+[node name="dialogText" type="Label" parent="VisualLayer"]
+offset_left = 263.0
+offset_top = 192.0
+offset_right = 723.0
+offset_bottom = 407.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_kbuhw")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("3_an3i1")
+text = "📲 *Darmis DarmPad™️ klingelt* 📲
+*Lacto ruft an*
+😠 *Darmi grummelt* 😠
+„... schon wieder Lacto ...“"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="darmi" type="Sprite2D" parent="VisualLayer"]
+position = Vector2(924, 581)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_h63ng")
+
+[node name="lacto" type="Sprite2D" parent="VisualLayer"]
+position = Vector2(840, 607)
+rotation = -0.304404
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_riiqp")

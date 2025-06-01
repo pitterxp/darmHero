@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6s8wf50k1s0o"]
+[gd_scene load_steps=6 format=3 uid="uid://b6s8wf50k1s0o"]
 
 [ext_resource type="Script" uid="uid://dp8542plyp6ow" path="res://scenes/ui/hud/hud.gd" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://dd41q4hk7ofn4" path="res://scenes/ui/hud/timer-64.png" id="2_2wu1p"]
+[ext_resource type="Texture2D" uid="uid://ndlw24rqh8va" path="res://scenes/ui/hud/hud-hp-96.png" id="2_ax4tw"]
+[ext_resource type="Texture2D" uid="uid://bvj881x5hgev4" path="res://scenes/ui/hud/hud-xp-96.png" id="3_2wu1p"]
+[ext_resource type="Texture2D" uid="uid://cicvlofbtftmv" path="res://scenes/ui/hud/hud-money-96.png" id="4_4m4yb"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_ahhtf")
@@ -13,15 +17,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="displayTimer" type="Label" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 137.0
 grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Die Zeit drängt"
+texture = ExtResource("2_2wu1p")
+stretch_mode = 2
+
+[node name="displayTimer" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "00:00"
 
@@ -32,24 +46,70 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -147.5
-offset_top = -40.0
-offset_right = 147.5
+offset_left = -127.0
+offset_top = -135.0
+offset_right = 127.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 
-[node name="displayHP" type="Label" parent="Control/HBoxContainer"]
+[node name="hpDisplay" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="hp" type="Label" parent="Control/HBoxContainer/hpDisplay"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "HP: 0"
+text = "❤️"
 
-[node name="displayXP" type="Label" parent="Control/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/hpDisplay"]
+layout_mode = 2
+tooltip_text = "Lebenspunkte / HP"
+texture = ExtResource("2_ax4tw")
+
+[node name="displayHP" type="Label" parent="Control/HBoxContainer/hpDisplay"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "XP: 000"
+text = "0"
+horizontal_alignment = 1
 
-[node name="displayMoney" type="Label" parent="Control/HBoxContainer"]
+[node name="xpDisplay" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="xp" type="Label" parent="Control/HBoxContainer/xpDisplay"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Money: 000"
+text = "🌟"
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/xpDisplay"]
+layout_mode = 2
+tooltip_text = "Erfahrung / XP"
+texture = ExtResource("3_2wu1p")
+
+[node name="displayXP" type="Label" parent="Control/HBoxContainer/xpDisplay"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1
+
+[node name="moneyDisplay" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="money" type="Label" parent="Control/HBoxContainer/moneyDisplay"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "💰"
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/moneyDisplay"]
+layout_mode = 2
+tooltip_text = "Cash in die Täsch'"
+texture = ExtResource("4_4m4yb")
+
+[node name="displayMoney" type="Label" parent="Control/HBoxContainer/moneyDisplay"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1

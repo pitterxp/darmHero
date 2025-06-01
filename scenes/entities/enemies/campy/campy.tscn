@@ -1,8 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://b21iajuc0ulkp"]
+[gd_scene load_steps=5 format=3 uid="uid://b21iajuc0ulkp"]
 
+[ext_resource type="Script" uid="uid://c48xs5ay0owdn" path="res://scenes/entities/enemies/campy/campy.gd" id="1_c3efr"]
 [ext_resource type="Texture2D" uid="uid://d0gtn7nfba104" path="res://scenes/entities/enemies/campy/campy-64.png" id="1_nhv7a"]
 
-[node name="Campy" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hd0mg"]
+size = Vector2(58, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3efr"]
+size = Vector2(58, 58)
+
+[node name="Campy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_c3efr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nhv7a")
+
+[node name="movementHitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_hd0mg")
+
+[node name="mobHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="hitboxshape" type="CollisionShape2D" parent="mobHitbox"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_c3efr")
+
+[connection signal="area_entered" from="mobHitbox" to="." method="_on_mob_hitbox_area_entered"]

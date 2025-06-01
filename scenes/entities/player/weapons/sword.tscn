@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b6f1c3x18fbi2" path="res://scenes/entities/player/weapons/sword.gd" id="1_mdf26"]
 
 [node name="Sword" type="Area2D"]
+scale = Vector2(0.15, 0.15)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_mdf26")
@@ -17,5 +18,8 @@ polygon = PackedVector2Array(187, -320, 182, -268, 40, -4, -10, 84, -72, 179, -1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="AttackTimer" type="Timer" parent="."]
+
+[node name="GripPoint" type="Marker2D" parent="."]
+position = Vector2(-146.667, 260)
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

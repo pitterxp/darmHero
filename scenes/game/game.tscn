@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://4nrom2c0sq06" path="res://scenes/game/game.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://b6s8wf50k1s0o" path="res://scenes/ui/hud/hud.tscn" id="2_yqjtg"]
 [ext_resource type="Script" uid="uid://ben5nijp5ns6h" path="res://scenes/game/spawn_manager.gd" id="3_p57ef"]
-[ext_resource type="PackedScene" uid="uid://ch26xghawc103" path="res://scenes/levels/arena/arena_level_1.tscn" id="4_gee14"]
+[ext_resource type="PackedScene" uid="uid://ch26xghawc103" path="res://scenes/game/arena/lvl1_mund/lvl1_mund.tscn" id="4_bdhmt"]
 [ext_resource type="PackedScene" uid="uid://cg821yyjqqg0x" path="res://scenes/entities/player/player.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://dh513pjaulssn" path="res://scenes/ui/templates/ui_volume_slider/ui_volume_slider.tscn" id="7_u5sy4"]
 
@@ -17,7 +17,7 @@ script = ExtResource("1_lnu2h")
 [node name="nodeSpawnManager" type="Node" parent="."]
 script = ExtResource("3_p57ef")
 
-[node name="ArenaLevel1" parent="." instance=ExtResource("4_gee14")]
+[node name="ArenaLevel1" parent="." instance=ExtResource("4_bdhmt")]
 
 [node name="Player" parent="." instance=ExtResource("4_iywne")]
 
@@ -71,5 +71,6 @@ text = "Fortsetzen"
 [connection signal="pressed" from="pauseMenu/Control/VBoxContainer/mainmenu" to="." method="_on_mainmenu_pressed"]
 [connection signal="pressed" from="pauseMenu/Control/VBoxContainer/continue" to="." method="_on_continue_pressed"]
 
+[editable path="ArenaLevel1"]
 [editable path="Player"]
 [editable path="Player/Sword"]
