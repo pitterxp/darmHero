@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5cl0rd73y3j6"]
+
+[ext_resource type="Script" uid="uid://bjpookpccgs2p" path="res://scenes/entities/enemies/clostri/clostri.gd" id="1_44qkr"]
+[ext_resource type="Texture2D" uid="uid://ccdtma8yfaxjn" path="res://scenes/entities/enemies/clostri/clostri-64.png" id="2_44qkr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emng5"]
+size = Vector2(58, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44qkr"]
+size = Vector2(58, 58)
+
+[node name="Clostri" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_44qkr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_44qkr")
+
+[node name="movementHitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_emng5")
+
+[node name="mobHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="hitboxshape" type="CollisionShape2D" parent="mobHitbox"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_44qkr")

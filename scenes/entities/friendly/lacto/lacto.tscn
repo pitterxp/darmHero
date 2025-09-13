@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bns0o50qm8dh"]
+
+[ext_resource type="Script" uid="uid://h3ayknreafkw" path="res://scenes/entities/friendly/lacto/lacto.gd" id="1_eflh0"]
+[ext_resource type="Texture2D" uid="uid://cfrv0qxsn762n" path="res://scenes/entities/friendly/lacto/lacto-friendly-64.png" id="2_8kein"]
+
+[node name="Lacto" type="CharacterBody2D" groups=["friendly"]]
+script = ExtResource("1_eflh0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8kein")

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://0meqydwqvium"]
+
+[ext_resource type="Script" uid="uid://cmafutuinbhgv" path="res://scenes/ui/intro/SlideBase.gd" id="1_pdj47"]
+[ext_resource type="Texture2D" uid="uid://bu6u3evsx02lg" path="res://scenes/ui/intro/slide1/slide_1-bg.png" id="2_wpaxc"]
+[ext_resource type="StyleBox" uid="uid://cg7r1yqipslgh" path="res://scenes/ui/intro/slide_dialog_label.tres" id="3_gi5vn"]
+[ext_resource type="FontFile" uid="uid://dw4sryh8663s2" path="res://fonts/GloriaHallelujah/GloriaHallelujah.ttf" id="3_vecm1"]
+[ext_resource type="Texture2D" uid="uid://dbfeji2pvkbht" path="res://scenes/ui/intro/slide1/slide_1-darmi-tired.png" id="4_pdj47"]
+
+[node name="Slide1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pdj47")
+
+[node name="VisualLayer" type="CanvasGroup" parent="."]
+
+[node name="bg" type="TextureRect" parent="VisualLayer"]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_wpaxc")
+
+[node name="dialogText" type="Label" parent="VisualLayer"]
+offset_left = 352.0
+offset_top = 102.0
+offset_right = 812.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vecm1")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("3_gi5vn")
+text = "Nach einem langen, anstrengenden Tag, kehrt Darmi nach Hause zurück.
+😫*Darmi grummelt innerlich*😫"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="darmi" type="TextureRect" parent="VisualLayer"]
+offset_left = 120.0
+offset_top = 309.0
+offset_right = 632.0
+offset_bottom = 821.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_pdj47")
+flip_h = true

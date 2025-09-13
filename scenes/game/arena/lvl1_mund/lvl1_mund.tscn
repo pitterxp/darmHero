@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch26xghawc103"]
+
+[ext_resource type="Texture2D" uid="uid://3cygskivt1ps" path="res://scenes/game/arena/lvl1_mund/mundhöhle-zunge1.png" id="1_6ri3l"]
+[ext_resource type="Script" uid="uid://gwplkhcyxdt1" path="res://scenes/game/arena/lvl1_mund/lvl1_mund.gd" id="1_7wh7p"]
+[ext_resource type="Texture2D" uid="uid://ctg48edhx5vf8" path="res://assets/bgImages/sora-tile-512.png" id="2_nwdcq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwdcq"]
+size = Vector2(1536, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gck3t"]
+size = Vector2(32, 1024)
+
+[node name="ArenaLevel1" type="Node2D"]
+script = ExtResource("1_7wh7p")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("2_nwdcq")
+region_enabled = true
+region_rect = Rect2(0, 0, 5000, 5000)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -128.0
+offset_top = -152.0
+offset_right = 1408.0
+offset_bottom = 872.0
+texture = ExtResource("1_6ri3l")
+
+[node name="playerSpawnPosition" type="Marker2D" parent="."]
+position = Vector2(639, 362)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="top" type="StaticBody2D" parent="Node2D"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/top"]
+position = Vector2(639, -168)
+shape = SubResource("RectangleShape2D_nwdcq")
+
+[node name="right" type="StaticBody2D" parent="Node2D"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/right"]
+position = Vector2(1424, 362)
+shape = SubResource("RectangleShape2D_gck3t")
+
+[node name="bottom" type="StaticBody2D" parent="Node2D"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/bottom"]
+position = Vector2(639, 888)
+shape = SubResource("RectangleShape2D_nwdcq")
+
+[node name="left" type="StaticBody2D" parent="Node2D"]
+position = Vector2(-128, 362)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/left"]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_gck3t")

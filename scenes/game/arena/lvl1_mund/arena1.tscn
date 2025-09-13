@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dds8t00bn3b88"]
+
+[ext_resource type="Texture2D" uid="uid://3cygskivt1ps" path="res://scenes/game/arena/lvl1_mund/mundhöhle-zunge1.png" id="1_u8vfc"]
+
+[node name="Arena1" type="Node2D"]
+
+[node name="mundhöhle" type="TextureRect" parent="."]
+offset_left = -128.0
+offset_top = -152.0
+offset_right = 1408.0
+offset_bottom = 872.0
+texture = ExtResource("1_u8vfc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_u8vfc")
+
+[node name="playerSpawnPosition" type="Marker2D" parent="."]
+position = Vector2(446, 389)

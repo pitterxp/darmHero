@@ -1,0 +1,178 @@
+[gd_scene load_steps=4 format=3 uid="uid://d168ivvotgqmu"]
+
+[ext_resource type="Script" uid="uid://bmy4hybvvcase" path="res://scenes/ui/credits/credits.gd" id="1_20nbd"]
+[ext_resource type="Theme" uid="uid://cqf0xqp63jr04" path="res://globals/uitheme.tres" id="2_7pmly"]
+[ext_resource type="FontFile" uid="uid://dw4sryh8663s2" path="res://fonts/GloriaHallelujah/GloriaHallelujah.ttf" id="3_842xf"]
+
+[node name="IntroSzene" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_20nbd")
+
+[node name="Panel" type="Panel" parent="Control"]
+z_index = -2
+layout_mode = 0
+offset_right = 1275.0
+offset_bottom = 724.0
+theme = ExtResource("2_7pmly")
+
+[node name="bgColour" type="ColorRect" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.976471)
+
+[node name="gameTitle" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.823529, 0.168627, 0.168627, 1)
+theme_override_fonts/font = ExtResource("3_842xf")
+theme_override_font_sizes/font_size = 30
+text = "darmHero
+\"Homeostasis Gone Wrong\""
+horizontal_alignment = 1
+
+[node name="text1" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -94.5
+offset_right = 230.0
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Entwickelt von
+
+pitterxp"
+horizontal_alignment = 1
+
+[node name="text2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -94.5
+offset_right = 230.0
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Powered by
+
+Godot Engine"
+horizontal_alignment = 1
+
+[node name="text3" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -190.5
+offset_right = 285.0
+offset_bottom = 190.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Ohne Euch gäbe es dieses Projekt nicht
+
+
+ChatGPT → creative-coding-CoPilot
+Gemini → intial coding-CoPilot
+Claude →intial lektorat-CoPilot"
+horizontal_alignment = 1
+
+[node name="text4" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -158.5
+offset_right = 230.0
+offset_bottom = 158.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Visual elements by
+
+pitterxp
+Stable Diffusion
+Sora"
+horizontal_alignment = 1
+
+[node name="text5" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -203.5
+offset_right = 273.0
+offset_bottom = 203.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Music by
+
+Antonín Dvořák
+Symphony No. 9 \"From the New World\"
+
+Camille Saint-Saens
+\"Aquarium\"
+
+Kevin MacLeod
+Divertissement - Pizzicato (Sylvia) "
+horizontal_alignment = 1
+
+[node name="text6" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -615.5
+offset_top = -94.5
+offset_right = 615.5
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Dieses Projekt ist weder offiziell abgesegnet, noch hat es Anspruch auf Seriosität.
+
+Have fun <3"
+horizontal_alignment = 1

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://ikctniewhek5"]
+
+[ext_resource type="Script" uid="uid://cmafutuinbhgv" path="res://scenes/ui/intro/SlideBase.gd" id="1_n1ayy"]
+[ext_resource type="Texture2D" uid="uid://bk7r1yih8241h" path="res://scenes/ui/intro/slide2/slide_2.png" id="2_n1ayy"]
+[ext_resource type="Texture2D" uid="uid://brny6qg07ikpc" path="res://scenes/ui/intro/slide4/slide_4-confident-darmi.png" id="3_7ewfd"]
+[ext_resource type="FontFile" uid="uid://dw4sryh8663s2" path="res://fonts/GloriaHallelujah/GloriaHallelujah.ttf" id="3_t8uq8"]
+[ext_resource type="StyleBox" uid="uid://cg7r1yqipslgh" path="res://scenes/ui/intro/slide_dialog_label.tres" id="4_si42h"]
+
+[node name="Slide4" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n1ayy")
+
+[node name="VisualLayer" type="CanvasGroup" parent="."]
+
+[node name="picture" type="TextureRect" parent="VisualLayer"]
+offset_right = 1536.0
+offset_bottom = 864.0
+texture = ExtResource("2_n1ayy")
+
+[node name="dialogText" type="Label" parent="VisualLayer"]
+offset_left = 281.0
+offset_top = 365.0
+offset_right = 741.0
+offset_bottom = 472.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t8uq8")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("4_si42h")
+text = "🌟*Darmi rafft sich auf*🌟
+🌠„Na gut. Zeit, aufzuräumen...“💪"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VisualLayer"]
+position = Vector2(904, 594)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("3_7ewfd")

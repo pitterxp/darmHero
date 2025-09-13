@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://btylp06fvkct7" path="res://scenes/hitbox_test/hitbox_test.gd" id="1_7pq6y"]
 [ext_resource type="Script" uid="uid://dbvtbsyljsbns" path="res://scenes/hitbox_test/player.gd" id="2_b8f7h"]
-[ext_resource type="Texture2D" uid="uid://dy7m8kymhcw8f" path="res://assets/sprites/player/hero.png" id="3_7savw"]
-[ext_resource type="Texture2D" uid="uid://6ubm6kujt4jd" path="res://assets/sprites/enemies/mob-1.png" id="4_76b77"]
-[ext_resource type="Texture2D" uid="uid://ddk36udyut3mw" path="res://assets/sprites/weapons/sword2.png" id="4_vgo6v"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/hero.png" id="3_7savw"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/mob-1.png" id="4_76b77"]
+[ext_resource type="Texture2D" uid="uid://ddk36udyut3mw" path="res://scenes/entities/player/weapons/sword2.png" id="4_vgo6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7savw"]
 size = Vector2(103, 106)

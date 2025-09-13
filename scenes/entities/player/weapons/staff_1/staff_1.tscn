@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://jca6g1wh37ka"]
+
+[ext_resource type="Script" uid="uid://uk32wyr0lf7k" path="res://scenes/entities/player/weapons/staff_1/staff_1.gd" id="1_lf170"]
+[ext_resource type="Texture2D" uid="uid://dnukws32c38er" path="res://scenes/entities/player/weapons/staff_1/stab-1-96.png" id="2_pygvl"]
+
+[node name="Staff1" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_lf170")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_pygvl")
+
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1, -46, 11, -33, 12, -20, 5, -14, 6, -8, 4, -8, 4, 0, 6, 2, 6, 5, 4, 5, 4, 10, 5, 12, 4, 14, 4, 20, 6, 22, 4, 25, 4, 37, 7, 43, 3, 48, -1, 47, -3, 40, -1, 36, -1, 29, -3, 27, -1, 25, -1, 16, -3, 14, -2, 13, -2, 4, -4, 2, -2, -1, -2, -11, -9, -18, -12, -23, -11, -33)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="GripPoint" type="Marker2D" parent="."]
+position = Vector2(2, 42)
+
+[connection signal="area_entered" from="." to="." method="_on_weapon_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_weapon_area_exited"]

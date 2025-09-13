@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://djrbfe8t3cu3u"]
+
+[ext_resource type="Script" uid="uid://cdv53vuebdktq" path="res://scenes/ui/intro/intro.gd" id="1_ioskq"]
+
+[node name="IntroSzene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlideContainer" type="Control" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ioskq")
+
+[node name="sliderContent" type="Control" parent="SlideContainer"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bgColour" type="ColorRect" parent="SlideContainer"]
+z_index = -1
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.976471)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+z_index = 5
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -28.0
+offset_right = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="skip" type="Button" parent="VBoxContainer"]
+z_index = 5
+z_as_relative = false
+y_sort_enabled = true
+layout_mode = 2
+text = "❌"
+
+[connection signal="pressed" from="VBoxContainer/skip" to="SlideContainer" method="_on_skip_pressed"]

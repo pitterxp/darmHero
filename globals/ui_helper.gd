@@ -7,29 +7,34 @@ const OPTIONS_MENU = "options_menu"
 const PRE_GAME = "pre_game"
 const ROUND_FINISHED = "round_finished"
 const GAME = "game"
+const CREDITS = "credits"
 
 
 # Pfade definieren und vorladen
 var ui_scenes = {
-	INTRO: preload("res://scenes/ui/intro.tscn"),
-	MAIN_MENU: preload("res://scenes/ui/main_menu.tscn"),
-	OPTIONS_MENU: preload("res://scenes/ui/options_menu.tscn"),
-	PRE_GAME: preload("res://scenes/ui/pre_game.tscn"),
-	ROUND_FINISHED: preload("res://scenes/ui/round_finished.tscn"),
+	INTRO: preload("res://scenes/ui/intro/intro.tscn"),
+	MAIN_MENU: preload("res://scenes/ui/main_menu/main_menu.tscn"),
+	OPTIONS_MENU: preload("res://scenes/ui/options_menu/options_menu.tscn"),
+	PRE_GAME: preload("res://scenes/ui/pre_game/pre_game.tscn"),
+	ROUND_FINISHED: preload("res://scenes/ui/round_finished/round_finished.tscn"),
+	CREDITS: preload("res://scenes/ui/credits/credits.tscn")
 }
 
 # Pfade definieren ohne vorzuladen
 var game_scenes = {
-	GAME: "res://scenes/game.tscn"
+	GAME: "res://scenes/game/game.tscn"
 }
 
 func _ready() -> void:
 	pass
 
 # UI Szene wechseln
-func goto_ui_scene(scene_name:String) -> void:
+func goto_ui_scene(scene_name: String) -> void:
 	if ui_scenes.has(scene_name):
+		await FadeManager.fade_to_black(0.5)
 		get_tree().change_scene_to_packed(ui_scenes[scene_name])
+		await get_tree().process_frame
+		await FadeManager.fade_to_clear(0.5)
 	else:
 		push_error("UI Szene nicht gefunden: " + scene_name)
 
@@ -39,6 +44,10 @@ func goto_game_scene(scene_name:String) -> void:
 		get_tree().change_scene_to_file(game_scenes[scene_name])
 	else:
 		push_error("Game Szene nicht gefunden:" + scene_name)
+
+func goto_mainmenu() -> bool:
+	goto_ui_scene("main_menu")
+	return true
 
 # main_ui_button sound setup
 func setup_ui_buttons_in_scene():
